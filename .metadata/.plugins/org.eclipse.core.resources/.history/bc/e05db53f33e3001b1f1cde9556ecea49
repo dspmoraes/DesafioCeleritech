@@ -1,0 +1,43 @@
+package br.com.celeritech.desafio.controller.form;
+
+import br.com.celeritech.desafio.models.Location;
+import br.com.celeritech.desafio.models.Personagem;
+import br.com.celeritech.desafio.repository.CharacterRepository;
+import br.com.celeritech.desafio.repository.LocationRepository;
+
+public class LocationForm {
+
+	private String name;
+	private String dimension;
+	private String namePersonagem;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDimension() {
+		return dimension;
+	}
+
+	public void setDimension(String dimension) {
+		this.dimension = dimension;
+	}
+
+	public String getResidents() {
+		return namePersonagem;
+	}
+
+	public void setResidents(String residents) {
+		this.namePersonagem = namePersonagem;
+	}
+
+	public Location converter(CharacterRepository characterRepository) {
+		Personagem residents = characterRepository.findByNome(namePersonagem);
+		return new Location(name, dimension, residents);
+	}
+
+}

@@ -1,0 +1,5 @@
+package br.com.celeritech.desafio.controller;
+
+public class LocationController {
+
+}
